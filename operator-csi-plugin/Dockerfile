@@ -1,4 +1,9 @@
-FROM quay.io/operator-framework/helm-operator:v0.4.0
-
-COPY helm-charts/ ${HOME}/helm-charts/
+FROM quay.io/operator-framework/helm-operator:v0.10.0
+MAINTAINER Pure Storage, Inc.
+LABEL name="pure-csi" vendor="Pure Storage" version="5.0.0" release="1.0" summary="Pure Storage CSI Operator" description="Pure Service Orchestrator CSI Operator"
+RUN pwd
+RUN df
+RUN ls -lart
 COPY watches.yaml ${HOME}/watches.yaml
+COPY licenses /licenses
+COPY helm-charts/ ${HOME}/helm-charts/
